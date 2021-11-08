@@ -61,7 +61,7 @@ class TicTacToe
     end
 
     def draw_check
-        if @turn == 10 && @end == false
+        if @turn == 8 && @end == false
           puts "It's a draw"
           play_again?
         end
@@ -84,3 +84,47 @@ class TicTacToe
       end
     end
 
+    class Participants
+        attr_reader :participant1, :participant2
+        
+        def initialize
+          puts "Welcome to Tic Tac Toe game. Participant 1, what's your name?"
+          @participant1 = gets.chomp
+          puts "#{@participant1} is X"
+          puts "Welcome to Tic Tac Toe game. Participant 2, what's your name?"
+          @participant2 = gets.chomp
+          puts "#{@participant2} is O"
+        end
+
+    end 
+
+    class Board
+        attr_reader :board
+            
+        def initialize
+          puts "When it's your turn please select one of the following numbers to start the game"
+          puts "0 | 1 | 2"
+          puts "---------"
+          puts "3 | 4 | 5"
+          puts "---------"
+          puts "6 | 7 | 8"
+          @board = [" "," "," "," "," "," "," "," "," "]
+        end
+
+        def board_update(position, symbol)
+            @board[position] = symbol
+            game_board_display(@board)
+        end
+
+        def game_board_display (board)
+            puts "#{board[0]} | #{board[1]} | #{board[2]}"
+            puts "---------"
+            puts "#{board[3]} | #{board[4]} | #{board[5]}"
+            puts "---------"
+            puts "#{board[6]} | #{board[7]} | #{board[8]}"
+        end
+          
+    end
+        
+        game = TicTacToe.new
+        game.move 
