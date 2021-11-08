@@ -59,3 +59,28 @@ class TicTacToe
           end
         end
     end
+
+    def draw_check
+        if @turn == 10 && @end == false
+          puts "It's a draw"
+          play_again?
+        end
+    end
+
+    def play_again?
+        puts "Would you like to play again? (Y/N)"
+          response = ""
+          while response != "Y" || response != "N"
+            response = gets.chomp.upcase
+              if response == "Y"
+                newgame = TicTacToe.new
+                newgame.move  
+              elsif response == "N"
+               puts "See you later, aligagor!"
+              else 
+                puts "Please enter (Y/N)"
+              end
+          end
+      end
+    end
+
